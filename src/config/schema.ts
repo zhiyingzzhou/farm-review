@@ -1,0 +1,182 @@
+import type { AppConfig } from '../types/index.js'
+
+export const defaultConfig: AppConfig = {
+  version: '1.0.0',
+  defaultProvider: 'openai',
+  providers: {
+    openai: {
+      provider: 'openai',
+      apiKey: '',
+      model: 'gpt-4o',
+      enabled: false,
+      baseUrl: 'https://api.openai.com/v1',
+      customModels: [],
+    },
+    claude: {
+      provider: 'claude',
+      apiKey: '',
+      baseUrl: 'https://api.anthropic.com',
+      model: 'claude-3-5-sonnet-20241022',
+      enabled: false,
+      customModels: [],
+    },
+    gemini: {
+      provider: 'gemini',
+      apiKey: '',
+      baseUrl: 'https://generativelanguage.googleapis.com',
+      model: 'gemini-2.5-flash',
+      enabled: false,
+      customModels: [],
+    },
+    azure: {
+      provider: 'azure',
+      apiKey: '',
+      baseUrl: '',
+      model: 'gpt-4o',
+      deploymentName: '',
+      apiVersion: '2024-10-21',
+      enabled: false,
+      customModels: [],
+    },
+    ollama: {
+      provider: 'ollama',
+      model: 'llama3.2',
+      host: 'http://localhost:11434',
+      enabled: false,
+      customModels: [],
+    },
+    zhipu: {
+      provider: 'zhipu',
+      apiKey: '',
+      model: 'glm-4.7',
+      enabled: false,
+      baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
+      customModels: [],
+    },
+  },
+  server: {
+    port: 3050,
+    autoOpen: true,
+  },
+  review: {
+    language: 'zh',
+    maxFilesPerReview: 50,
+    ignorePatterns: [
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      '.git/**',
+      '*.lock',
+      '*.log',
+      'package-lock.json',
+      'yarn.lock',
+      'pnpm-lock.yaml',
+    ],
+    enableSecurityCheck: true,
+    enableQualityScore: true,
+  },
+  history: {
+    maxRecords: 100,
+    autoSave: true,
+  },
+  gistSync: {
+    enabled: false,
+    gistId: '',
+    token: '',
+    autoSync: false,
+  },
+}
+
+export const availableModels: Record<string, string[]> = {
+  openai: [
+    'gpt-5.2',
+    'gpt-5.1',
+    'gpt-5',
+    'o4-mini',
+    'o3',
+    'o3-mini',
+    'gpt-4.1',
+    'gpt-4.1-mini',
+    'gpt-4o',
+    'gpt-4o-mini',
+  ],
+  claude: [
+    'claude-opus-4.5-20251124',
+    'claude-sonnet-4.5-20250929',
+    'claude-haiku-4.5-20251015',
+    'claude-3.7-sonnet-20250224',
+    'claude-3-5-sonnet-20241022',
+  ],
+  gemini: [
+    'gemini-3-pro-preview',
+    'gemini-3-flash-preview',
+    'gemini-2.5-flash',
+    'gemini-2.5-pro',
+    'gemini-2.0-flash',
+  ],
+  azure: [
+    'gpt-5.2',
+    'gpt-5.1',
+    'gpt-5',
+    'o4-mini',
+    'o3',
+    'o3-mini',
+    'gpt-4.1',
+    'gpt-4o',
+  ],
+  ollama: [
+    'llama4-scout',
+    'llama3.3',
+    'llama3.2',
+    'llama3.1',
+    'qwen3',
+    'qwen2.5-coder',
+    'deepseek-r1',
+    'deepseek-v3',
+    'deepseek-coder-v2',
+    'codellama',
+    'mistral',
+  ],
+  zhipu: [
+    'glm-4.7',
+    'glm-4.6',
+    'glm-zero-preview',
+    'glm-4.5',
+    'glm-4.5-air',
+    'glm-4.5-flash',
+  ],
+}
+
+export const providerInfo: Record<string, { name: string; description: string; icon: string }> = {
+  openai: {
+    name: 'OpenAI',
+    description: 'GPT-5.2, o3/o4-mini 等最新推理模型',
+    icon: '🤖',
+  },
+  claude: {
+    name: 'Anthropic Claude',
+    description: 'Claude 4.5 Opus/Sonnet/Haiku 等模型',
+    icon: '🎭',
+  },
+  gemini: {
+    name: 'Google Gemini',
+    description: 'Gemini 3 Pro/Flash, 2.5 Pro 等模型',
+    icon: '💎',
+  },
+  azure: {
+    name: 'Azure OpenAI',
+    description: '企业级 OpenAI 服务',
+    icon: '☁️',
+  },
+  ollama: {
+    name: 'Ollama (本地)',
+    description: 'Llama 4, Qwen3, DeepSeek-R1 等本地模型',
+    icon: '🦙',
+  },
+  zhipu: {
+    name: '智谱 GLM',
+    description: 'GLM-4.7, GLM-Zero 等国产大模型',
+    icon: '🧠',
+  },
+}
+

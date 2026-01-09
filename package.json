@@ -1,0 +1,89 @@
+{
+  "name": "farm-review",
+  "version": "1.0.0",
+  "description": "FARM Review - AI-powered code review tool with web interface",
+  "main": "dist/cli/index.js",
+  "bin": {
+    "farm-review": "./dist/cli/index.js",
+    "farm": "./dist/cli/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "gen:templates": "tsx scripts/gen-report-templates.ts",
+    "predev": "npm run gen:templates",
+    "dev": "tsx src/cli/index.ts",
+    "build": "npm run build:server && npm run build:web",
+    "prebuild:server": "npm run gen:templates",
+    "build:server": "tsup src/cli/index.ts --format esm --dts --outDir dist/cli --clean",
+    "prebuild:web": "npm run gen:templates",
+    "build:web": "vite build",
+    "prebuild:site": "npm run gen:templates",
+    "build:site": "vite build --mode site",
+    "prebuild:gh-pages": "npm run gen:templates",
+    "build:gh-pages": "vite build --mode gh-pages",
+    "preview": "vite preview",
+    "preview:site": "vite preview --mode site",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run gen:templates",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "code-review",
+    "ai",
+    "openai",
+    "claude",
+    "gemini",
+    "git",
+    "diff"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@git-diff-view/core": "^0.0.35",
+    "@git-diff-view/file": "^0.0.35",
+    "@git-diff-view/lowlight": "^0.0.35",
+    "@git-diff-view/react": "^0.0.35",
+    "@google/generative-ai": "^0.21.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "inquirer": "^12.2.0",
+    "marked": "^15.0.4",
+    "nanoid": "^5.0.9",
+    "ollama": "^0.5.11",
+    "open": "^10.1.0",
+    "openai": "^4.77.0",
+    "ora": "^8.1.1",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "potrace": "^2.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6",
+    "vitest": "^2.1.8"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
