@@ -2,7 +2,7 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 import { IconBookOpen, IconGithub, IconHeart, IconHistory, IconHome, IconSettings } from "./icons";
 import { isPublicSite } from "../env";
 
-const GITHUB_REPO_URL = "https://github.com/zhiyingzzhou/ai-code-reviewer";
+const GITHUB_REPO_URL = "https://github.com/zhiyingzzhou/farm-review";
 const LOGO_URL = `${import.meta.env.BASE_URL || "/"}logo.svg`;
 
 const navItems = isPublicSite

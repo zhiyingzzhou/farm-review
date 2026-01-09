@@ -115,7 +115,7 @@ export default function DocsPage() {
                 如果文档没有解决你的问题，欢迎提交 Issue 或加入我们的社区。
               </p>
               <a
-                href="https://github.com/zhiyingzzhou/ai-code-reviewer/issues"
+                href="https://github.com/zhiyingzzhou/farm-review/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary h-12 px-8 text-base gap-2"
