@@ -1,5 +1,5 @@
 {
-  "name": "farm-review",
+  "name": "@farm/review",
   "version": "1.0.0",
   "description": "FARM Review - AI-powered code review tool with web interface",
   "main": "dist/cli/index.js",
