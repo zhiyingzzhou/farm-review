@@ -3,6 +3,7 @@ import { IconBookOpen, IconGithub, IconHeart, IconHistory, IconHome, IconSetting
 import { isPublicSite } from "../env";
 
 const GITHUB_REPO_URL = "https://github.com/zhiyingzzhou/ai-code-reviewer";
+const LOGO_URL = `${import.meta.env.BASE_URL || "/"}logo.svg`;
 
 const navItems = isPublicSite
   ? [
@@ -37,8 +38,8 @@ export default function Layout() {
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-10 cyber-chamfer bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/50 flex items-center justify-center group-hover:shadow-neon transition-all duration-300">
-              <span className="text-lg font-bold text-primary neon-text">FR</span>
+            <div className="relative h-10 w-10 group-hover:shadow-neon transition-all duration-300">
+              <img src={LOGO_URL} alt="FARM Review" className="h-10 w-10" />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-lg font-bold tracking-wider text-foreground">
